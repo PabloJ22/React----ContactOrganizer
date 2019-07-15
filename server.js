@@ -10,7 +10,7 @@ connectDB();
 app.use(express.json({extended: false}));
 
 app.get('/', (req, res) => 
-res.json({msg: 'Welcome to your most efficient Contact Organizer the Internet can Supply.'})
+res.json({msg: 'Welcome to your most efficient Contact Organizer the Internet can Provide.'})
 );
 
 // Define Routes
