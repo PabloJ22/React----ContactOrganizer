@@ -21,14 +21,14 @@ const ContactState = props => {
         name: 'Mikey Vasquez',
         email: 'MikeV@gmail.com',
         phone: '512-459-2222',
-        type: 'Professional'
+        type: 'Personal'
       },
       {
         id:2,
         name: 'Tristan',
         email: 'TriVision@gmail.com',
         phone: '512-280-2222',
-        type: 'Professional'
+        type: 'Personal'
       }
     ],
     current: null
@@ -58,6 +58,9 @@ const ContactState = props => {
   };
 
   //Update Contact
+  const updateContact = contact => {
+    dispatch({type: UPDATE_CONTACT, payload:contact});
+  };
 
   //Filter Contacts
 
@@ -72,7 +75,8 @@ const ContactState = props => {
         addContact,
         deleteContact,
         setCurrent,
-        clearCurrent
+        clearCurrent,
+        updateContact
       }}>
         {props.children}
       </ContactContext.Provider>
