@@ -21,14 +21,14 @@ const ContactState = props => {
         name: 'Mikey Vasquez',
         email: 'MikeV@gmail.com',
         phone: '512-459-2222',
-        type: 'Business'
+        type: 'Professional'
       },
       {
         id:2,
         name: 'Tristan',
         email: 'TriVision@gmail.com',
         phone: '512-280-2222',
-        type: 'Business'
+        type: 'Professional'
       }
     ]
   };
@@ -36,6 +36,11 @@ const ContactState = props => {
   const [state, dispatch] = useReducer(contactReducer, initialState);
 
   //Add contact
+    const addContact = contact => {
+      contact.id = uuid.v4();
+      dispatch({type: ADD_CONTACT, payload:contact});
+    }
+
 
   //Delete Contact
 
@@ -53,7 +58,8 @@ const ContactState = props => {
     return (
       <ContactContext.Provider
       value={{
-        contacts: state.contacts
+        contacts: state.contacts,
+        addContact
       }}>
         {props.children}
       </ContactContext.Provider>
